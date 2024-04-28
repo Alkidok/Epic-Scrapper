@@ -1,15 +1,12 @@
-from weakref import WeakValueDictionary
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains 
 import re
-import time
 
 # ---- Constantes ----
 contador = 0
@@ -60,7 +57,7 @@ def pagina_jogo(contador):
     span_conteudo_inapropriado = "Para continuar, forneça sua data de nascimento"
     try:
         elemento_span = driver.find_element(By.XPATH, f"//span[text()='{span_conteudo_inapropriado}']")
-        print("Conteudo inapropriado...")
+        print(elemento_span)
         # Dia
         conteudo_inapropriado_click_dia = driver.find_element(By.ID, "day_toggle")
         conteudo_inapropriado_click_dia.click()
@@ -226,6 +223,9 @@ def metacritic(dic_nota_metacritic, dic_nomes_jogos, contador_metacritic):
     driver.quit()
     return contador_metacritic, dic_nota_metacritic
 
+def embed():
+    
+    return
 # ---- Regras ----
 
 # ---- Pegar links ----
